@@ -24,14 +24,13 @@ import static com.knu.ynortman.lab2.util.JsonConverter.*;
 
 @WebServlet
 public class CityServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
-    private final Logger logger = LogManager.getRootLogger();
-    private final CityService cityService;
-    public CityServlet() {
+  private static final long serialVersionUID = 1L;
+  private final Logger logger = LogManager.getRootLogger();
+  private final CityService cityService;
+  public CityServlet() {
         super();
         cityService = new CityServiceImpl();
-    }
+  }
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String[] urls = request.getPathInfo().split("/");
 		if(urls.length == 2 && urls[1].equals("all")) {
@@ -51,5 +50,4 @@ public class CityServlet extends HttpServlet {
 			logger.error("Path not found");
 		}
 	}
-
 }

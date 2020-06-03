@@ -140,7 +140,7 @@ public class FlightServlet extends HttpServlet {
 			logger.error("Path not found");
 		}
 	}
-	
+
 	@Override
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -177,6 +177,4 @@ public class FlightServlet extends HttpServlet {
 			logger.error("Path not found");
 		}
 	}
-
-	
 }

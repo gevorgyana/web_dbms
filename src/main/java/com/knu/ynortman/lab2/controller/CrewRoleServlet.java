@@ -22,15 +22,15 @@ import static com.knu.ynortman.lab2.util.JsonConverter.*;
 @WebServlet
 public class CrewRoleServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
+
 	private final Logger logger = LogManager.getRootLogger();
 	private final CrewRoleService roleService;
-	
+
     public CrewRoleServlet() {
         super();
         roleService = new CrewRoleServiceImpl();
     }
-    
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String[] urls = request.getPathInfo().split("/");
 		if(urls.length == 2 && urls[1].equals("all")) {
@@ -50,6 +50,4 @@ public class CrewRoleServlet extends HttpServlet {
 			logger.error("Path not found");
 		}
 	}
-
-
 }

@@ -20,12 +20,12 @@ import org.apache.logging.log4j.Logger;
 public class DispatcherServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private final Logger logger = LogManager.getRootLogger();
-	
+
 	private final String flightServletPath = "/flight";
 	private final String crewMemberServletPath = "/crew";
 	private final String crewRoleServletPath = "/role";
 	private final String cityServletPath = "/city";
-    
+
 	private FlightServlet flightController;
 	private CrewMemberServlet memberController;
 	private CrewRoleServlet roleController;
@@ -42,6 +42,9 @@ public class DispatcherServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String servletPath = request.getServletPath();
+
+                System.out.println(servletPath);
+
 		if(servletPath.equals(flightServletPath)) {
 			flightController.doGet(request, response);
 		} else if(servletPath.equals(crewMemberServletPath)) {
@@ -58,6 +61,9 @@ public class DispatcherServlet extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+          System.out.println("POST");
+
 		String servletPath = request.getServletPath();
 		if(servletPath.equals(flightServletPath)) {
 			flightController.doPost(request, response);
@@ -68,9 +74,12 @@ public class DispatcherServlet extends HttpServlet {
 			response.sendError(404, "Path not found");
 		}
 	}
-	
+
 	@Override
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+          System.out.println("PUT");
+
 		String servletPath = request.getServletPath();
 		if(servletPath.equals(flightServletPath)) {
 			flightController.doPut(request, response);
@@ -81,9 +90,12 @@ public class DispatcherServlet extends HttpServlet {
 			response.sendError(404, "Path not found");
 		}
 	}
-	
+
 	@Override
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+          System.out.println("DELETE");
+
 		String servletPath = request.getServletPath();
 		if(servletPath.equals(flightServletPath)) {
 			flightController.doDelete(request, response);
@@ -94,5 +106,4 @@ public class DispatcherServlet extends HttpServlet {
 			response.sendError(404, "Path not found");
 		}
 	}
-
 }
